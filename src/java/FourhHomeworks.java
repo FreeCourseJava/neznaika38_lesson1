@@ -92,8 +92,9 @@ public class FourhHomeworks {
                 right = midIndex;
                 return binarySearchWithRecursion(Arrays.copyOfRange(arrayOfData, left, right), desiredValue);
                 }
-            else
+            else{
                 return true;
+            }
     }
     
     public static void main(String[] args) {
