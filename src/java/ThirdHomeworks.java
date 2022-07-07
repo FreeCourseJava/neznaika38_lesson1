@@ -20,8 +20,42 @@ import java.util.Random;
 
 public class ThirdHomeworks {
 
+    public static void firstExercise(){
+        final Random random = new Random();
+        int[] arrayOfInt = new int[10];
+        int countNotMIN = 0;
 
-    // 2nd exercise
+        for (int i = 0; i < arrayOfInt.length; i++) {
+            arrayOfInt[i] = Integer.MIN_VALUE;
+        }
+
+        for (int i = 0; i < arrayOfInt.length; i += random.nextInt(5)) {
+            arrayOfInt[i] = random.nextInt();
+        }
+
+        for (int i = 0; i < arrayOfInt.length; i++) {
+            if (arrayOfInt[i] != Integer.MIN_VALUE) {
+                countNotMIN++;
+            }
+        }
+        System.out.println("Количество измененных значений массива равно " + countNotMIN);
+    }
+
+    public static void secondExercise(){
+        final Random random = new Random();
+        int[] significantYearsTatarstan = new int[20];
+        int firstMentionYear = 1222;
+        int currentYear = 2022;
+
+        for (int i = 0; i < significantYearsTatarstan.length; i++) {
+            significantYearsTatarstan[i] = firstMentionYear + random.nextInt(currentYear - firstMentionYear + 1);
+        }
+        significantYearsTatarstan = bubbleSort(significantYearsTatarstan);
+
+        for (int i : significantYearsTatarstan) {
+            System.out.println(i);
+        }
+    }
     public static int[] bubbleSort(int[] arrayToSort) {
         for (int i = 0; i < arrayToSort.length; i++) {
             int currentMin = arrayToSort[i];
@@ -43,7 +77,7 @@ public class ThirdHomeworks {
     }
 
     // 3d exercise
-    public static boolean isDesiredYearInMas(int[] masOfYear, int desiredYear) {
+    public static boolean isDesiredYearInArray(int[] masOfYear, int desiredYear) {
 
         if (masOfYear.length == 0) {
             return false;
@@ -53,55 +87,18 @@ public class ThirdHomeworks {
         int right = masOfYear.length - 1;
         for (int i = 0; left <= right; i++) {
             int midIndex = left + (right - left) / 2;
-            if (masOfYear[midIndex] < desiredYear)
+            if (masOfYear[midIndex] < desiredYear) {
                 left = midIndex + 1;
-            else if (masOfYear[midIndex] > desiredYear)
+            }
+            else if (masOfYear[midIndex] > desiredYear){
                 right = midIndex - 1;
+            }
             else
                 return true;
         }
         return false;
-
     }
 
     public static void main(String[] args) {
-
-        final Random random = new Random();
-
-        // 1st exercise
-
-        int[] arrayOfInt = new int[10];
-        int countNotMIN = 0;
-
-        for (int i = 0; i < arrayOfInt.length; i++) {
-            arrayOfInt[i] = Integer.MIN_VALUE;
-        }
-
-        for (int i = 0; i < arrayOfInt.length; i += random.nextInt(5)) {
-            arrayOfInt[i] = random.nextInt();
-        }
-
-        for (int i = 0; i < arrayOfInt.length; i++) {
-            if (arrayOfInt[i] != Integer.MIN_VALUE) {
-                countNotMIN++;
-            }
-        }
-        System.out.println("Количество измененных значений массива равно " + countNotMIN);
-
-        // 2nd exercise
-        int[] significantYearsTatarstan = new int[20];
-        int firstMentionYear = 1222;
-        int currentYear = 2022;
-
-        for (int i = 0; i < significantYearsTatarstan.length; i++) {
-            significantYearsTatarstan[i] = firstMentionYear + random.nextInt(currentYear - firstMentionYear + 1);
-        }
-        significantYearsTatarstan = bubbleSort(significantYearsTatarstan);
-
-        for (int i : significantYearsTatarstan) {
-            System.out.println(i);
-        }
     }
-
-
 }
