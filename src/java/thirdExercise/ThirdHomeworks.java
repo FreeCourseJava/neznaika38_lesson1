@@ -1,3 +1,5 @@
+package thirdExercise;
+
 import java.util.Random;
 
 /*
