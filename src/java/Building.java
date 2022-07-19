@@ -1,13 +1,13 @@
 public class Building {
     int number;
     int length;
-    float width;
+    int width;
 
     public Building(int number) {
         this.number = number;
     }
 
-    public Building(int number, int length, float width) {
+    public Building(int number, int length, int width) {
         this.number = number;
         this.length = length;
         this.width = width;
@@ -29,11 +29,11 @@ public class Building {
         this.length = length;
     }
 
-    public float getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(float width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 }
